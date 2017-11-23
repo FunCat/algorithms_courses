@@ -24,6 +24,7 @@ public class LSD {
             for (int i = 0; i < a.length; i++) {
                 temp[count[a[i].key(k) + 1]++] = a[i].getValue();
             }
+
             for (int i = 0; i < a.length; i++) {
                 a[i].setValue(temp[i]);
             }

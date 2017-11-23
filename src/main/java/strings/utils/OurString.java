@@ -17,7 +17,7 @@ public class OurString {
     }
 
     public int key(int k){
-        if(value.length() <= k) return 0;
+        if(value.length() <= k || k < 0) return -1;
         return ABC.getIndexByChar(value.charAt(value.length() - 1 - k));
     }
 
