@@ -14,7 +14,7 @@ public class LSD {
             String[] temp = new String[a.length];
 
             for (int i = 0; i < a.length; i++) {
-                count[a[i].key(k) + 2]++;
+                count[a[i].key(a[i].getValue().length() - k - 1) + 2]++;
             }
 
             for (int i = 0; i < count.length - 1; i++) {
@@ -22,7 +22,7 @@ public class LSD {
             }
 
             for (int i = 0; i < a.length; i++) {
-                temp[count[a[i].key(k) + 1]++] = a[i].getValue();
+                temp[count[a[i].key(a[i].getValue().length() - k - 1) + 1]++] = a[i].getValue();
             }
 
             for (int i = 0; i < a.length; i++) {

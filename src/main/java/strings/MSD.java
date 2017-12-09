@@ -13,7 +13,7 @@ public class MSD {
         String[] temp = new String[to - from];
 
         for (int i = from; i < to; i++) {
-            count[a[i].key(a[i].getValue().length() - k - 1) + 2]++;
+            count[a[i].key(k) + 2]++;
         }
 
         for (int i = 0; i < count.length - 1; i++) {
@@ -21,7 +21,7 @@ public class MSD {
         }
 
         for (int i = from; i < to; i++) {
-            temp[count[a[i].key(a[i].getValue().length() - k - 1) + 1]++] = a[i].getValue();
+            temp[count[a[i].key(k) + 1]++] = a[i].getValue();
         }
 
         for (int i = 0; i < temp.length; i++) {
