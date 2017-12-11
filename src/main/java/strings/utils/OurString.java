@@ -1,5 +1,7 @@
 package strings.utils;
 
+import java.util.Objects;
+
 public class OurString {
 
     private String value;
@@ -19,6 +21,20 @@ public class OurString {
     public int key(int k){
         if(value.length() <= k || k < 0) return -1;
         return ABC.getIndexByChar(value.charAt(k));
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        OurString ourString = (OurString) o;
+        return Objects.equals(value, ourString.value);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(value);
     }
 
     @Override

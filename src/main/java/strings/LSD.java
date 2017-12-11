@@ -31,15 +31,4 @@ public class LSD {
         }
 
     }
-
-    public static void main(String[] args) {
-        OurString[] a = {new OurString("ABC"), new OurString("BCA"), new OurString("DFA"),
-            new OurString("FBB"), new OurString("WDSFA"), new OurString("A"),
-            new OurString("TABCA"), new OurString("ABA"), new OurString("BAB")};
-
-        lsd(a, 4);
-
-        System.out.println(Arrays.toString(a));
-    }
-
 }

@@ -33,17 +33,5 @@ public class MSD {
                 msd(a, count[i], count[i + 1], k + 1, K);
             }
         }
-
     }
-
-    public static void main(String[] args) {
-        OurString[] a = {new OurString("ABC"), new OurString("BCA"), new OurString("DFA"),
-            new OurString("FBB"), new OurString("WDSFA"), new OurString("A"),
-            new OurString("TABCA"), new OurString("ABA"), new OurString("BAB")};
-
-        msd(a, 0, a.length, 0 , 5);
-
-        System.out.println(Arrays.toString(a));
-    }
-
 }

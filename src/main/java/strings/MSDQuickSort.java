@@ -3,19 +3,26 @@ package strings;
 import strings.utils.OurString;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 public class MSDQuickSort {
 
     private static int c = 26;
 
     private OurString[] a;
+    private int maxLength = 0;
 
     public MSDQuickSort(OurString[] a) {
         this.a = a;
+        for (OurString anA : a) {
+            if (maxLength < anA.getValue().length()) {
+                maxLength = anA.getValue().length();
+            }
+        }
     }
 
     public void sort(int from, int to, int d) {
-        if (to - from < 1 || d > 5) return;
+        if (to - from < 1 || d > maxLength) return;
         int low = from;
         int high = to;
 
@@ -44,16 +51,5 @@ public class MSDQuickSort {
         OurString buf = a[from];
         a[from] = a[to];
         a[to] = buf;
-    }
-
-    public static void main(String[] args) {
-        OurString[] a = {new OurString("ABC"), new OurString("BCA"), new OurString("DFA"),
-                new OurString("FBB"), new OurString("WDSFA"), new OurString("A"),
-                new OurString("TABCA"), new OurString("ABA"), new OurString("BAB")};
-
-        MSDQuickSort msdQuickSort = new MSDQuickSort(a);
-        msdQuickSort.sort(0, a.length - 1, 0);
-
-        System.out.println(Arrays.toString(a));
     }
 }
