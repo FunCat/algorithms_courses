@@ -20,7 +20,34 @@ public class TrieTest {
     @Test
     public void delete(){
         trie.put(new OurString("TEST"), 1);
-        trie.delete(new OurString("TEXT"));
+        trie.put(new OurString("TESTS"), 2);
+        trie.delete(new OurString("TEST"));
+
+        assertEquals(null, trie.get(new OurString("TEST")));
+    }
+
+    @Test
+    public void getKeyByIndex_SimpleTest(){
+        trie.put(new OurString("TEST"), 1);
+        trie.put(new OurString("TESTS"), 2);
+        String keyByValue = trie.getKeyByValue(1);
+        assertEquals("TEST", keyByValue);
+    }
+
+    @Test
+    public void getKeyByIndex(){
+        trie.put(new OurString("SHE"), 1);
+        trie.put(new OurString("SELLS"), 2);
+        trie.put(new OurString("SHELL"), 3);
+        trie.put(new OurString("SEA"), 4);
+        trie.put(new OurString("BY"), 5);
+        trie.put(new OurString("THE"), 6);
+        assertEquals("SHE", trie.getKeyByValue(1));
+        assertEquals("SELLS", trie.getKeyByValue(2));
+        assertEquals("SHELL", trie.getKeyByValue(3));
+        assertEquals("SEA", trie.getKeyByValue(4));
+        assertEquals("BY", trie.getKeyByValue(5));
+        assertEquals("THE", trie.getKeyByValue(6));
     }
 
 }

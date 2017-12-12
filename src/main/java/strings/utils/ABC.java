@@ -8,4 +8,8 @@ public class ABC {
         return i - firstIndex;
     }
 
+    public static char getCharByIndex(int index){
+        return (char) (index + firstIndex);
+    }
+
 }

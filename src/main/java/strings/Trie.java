@@ -1,5 +1,6 @@
 package strings;
 
+import strings.utils.ABC;
 import strings.utils.OurString;
 
 public class Trie {
@@ -61,20 +62,49 @@ public class Trie {
 
     private Node delete(Node n, OurString key, int d) {
         if (key.getValue().length() == d) {
-            return null;
+            if(n.value != null) {
+                n.value = null;
+            }
         } else {
             int index = key.key(d);
             if(n.links[index] != null) {
                 n.links[index] = delete(n.links[index], key, d + 1);
             }
         }
-        if (n.value != null){
-            return null;
-        }
         for(int i = 0; i < c; i++){
             if(n.links[i] != null){
                 return n;
             }
+        }
+        return null;
+    }
+
+    public String getKeyByValue(Integer value){
+        builder.setLength(0);
+        find = false;
+        String key = getKeyByValue(trieRoot, value);
+        return key;
+    }
+
+    private StringBuilder builder = new StringBuilder();
+    private boolean find = false;
+
+    private String getKeyByValue(Node n, Integer value){
+        for (int i = 0; i < c; i++) {
+            if(find){
+                return builder.toString();
+            }
+            if(n.getValue() != null && n.getValue().equals(value)){
+                find = true;
+                return builder.toString();
+            }
+            if(n.links[i] != null){
+                builder.append(ABC.getCharByIndex(i));
+                getKeyByValue(n.links[i], value);
+            }
+        }
+        if(builder.length() > 0) {
+            builder.setLength(builder.length() - 1);
         }
         return null;
     }
